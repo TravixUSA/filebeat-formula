@@ -61,7 +61,9 @@ output:
 {%- if 'tls' in logstash %}
 {%- if logstash.tls.get('enabled', False) %}
     tls:
+{%- if 'tls.ssl_cert_path' in logstash %}
       certificate_authorities: ["{{ logstash.tls.ssl_cert_path }}"]
+{%- endif %}
 {%- endif %}
 {%- endif %}
 {%- endif %}

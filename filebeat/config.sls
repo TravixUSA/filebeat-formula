@@ -1,6 +1,6 @@
 {% from "filebeat/map.jinja" import conf with context %}
 
-{% if salt['pillar.get']('filebeat:logstash:tls:enabled', False)  %}
+{% if salt['pillar.get']('filebeat:logstash:tls:use_custom_ca', False)  %}
 {{ salt['pillar.get']('filebeat:logstash:tls:ssl_cert_path', '/etc/pki/tls/certs/logstash-forwarder.crt') }}:
   file.managed:
     - source: {{ salt['pillar.get']('filebeat:logstash:tls:ssl_cert', 'salt://filebeat/files/ca.pem') }}

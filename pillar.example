@@ -41,6 +41,9 @@ filebeat:
     server: 127.0.0.1:5044
     tls:
       enabled: True
+      # set to true to use your own certificate authority
+      # defaults to False and uses the system CAs
+      use_custom_ca: True
       # this is the public key from your ELK server
       # default path is salt://filebeat/files/ca.pem
       ssl_cert: salt://mycustom/filebeat/logstash-forwarder.crt 
