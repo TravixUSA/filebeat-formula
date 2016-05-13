@@ -11,6 +11,7 @@ filebeat:
       input_type: {{ log_path.get('input_type', 'log') }}
       document_type: {{ log_path.get('document_type', 'syslog') }}
       ignore_older: {{ log_path.get('ignore_older', '24h') }}
+      tail_files: {{ log_path.get('tail_files', 'false') }}
       scan_frequency: {{ log_path.get('scan_frequency', '10s') }}
       backoff: {{ log_path.get('backoff', '1s') }}
       max_backoff: {{ log_path.get('max_backoff', '10s') }}
